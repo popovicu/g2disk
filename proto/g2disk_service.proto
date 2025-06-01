@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package g2disk;
+
+service G2DiskService {
+  rpc Echo(EchoRequest) returns (EchoResponse) {}
+}
+
+message EchoRequest {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+message EchoResponse {
+  int32 c = 1;
+}

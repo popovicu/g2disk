@@ -1,0 +1,27 @@
+module(
+    name = "g2disk",
+    version = "0.0.1",
+)
+
+bazel_dep(name = "rules_go", version = "0.54.1")
+bazel_dep(name = "rules_proto", version = "7.1.0")
+bazel_dep(name = "gazelle", version = "0.43.0")
+
+go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")
+go_sdk.download(version = "1.24.0")
+
+go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")
+go_deps.from_file(go_mod = "//:go.mod")
+go_deps.gazelle_default_attributes(
+    # Pointers here: https://github.com/bazelbuild/rules_go/blob/master/docs/go/core/bzlmod.md#gazelle-directives
+    directives = [
+        "gazelle:proto disable",
+    ],
+)
+use_repo(go_deps, "org_golang_google_grpc")
+
+nbdkit = use_extension("//:extension.bzl", "nbdkit")
+use_repo(
+    nbdkit,
+    "nbdkit",
+)
