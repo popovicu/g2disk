@@ -8,10 +8,10 @@ proto_library(
 
 go_grpc_library(
     name = "g2disk_service_go_proto",
-    proto = ":g2disk_service_proto",
     importpath = "github.com/popovicu/g2disk/proto",
+    proto = ":g2disk_service_proto",
     visibility = [
-        "//pkg/nbdkit:__subpackages__",
         "//cmd/server:__subpackages__",
-    ]
+        "//pkg/nbdkit:__subpackages__",
+    ],
 )

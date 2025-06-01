@@ -7,23 +7,19 @@ go_library(
     srcs = [
         "protocol.go",
     ],
+    cgo = True,
+    importpath = "github.com/popovicu/g2disk/pkg/nbdkit/grpc/protocol",
     deps = [
         PLUGIN_LIB,
+        "//proto:g2disk_service_go_proto",
         "//remote/grpc",
         "//remote/grpc:grpc_credentials",
         "//remote/grpc:grpc_credentials_insecure",
-        "//proto:g2disk_service_go_proto",
     ],
-    cgo = True,
-    importpath = "github.com/popovicu/g2disk/pkg/nbdkit/grpc/protocol",
 )
 
 go_binary(
     name = "g2disk",
-    deps = [
-        ":protocol",
-        PLUGIN_LIB,
-    ],
     srcs = [
         "g2disk.go",
     ],
@@ -31,5 +27,9 @@ go_binary(
     linkmode = "c-shared",
     visibility = [
         "//:__pkg__",
-    ]
+    ],
+    deps = [
+        ":protocol",
+        PLUGIN_LIB,
+    ],
 )

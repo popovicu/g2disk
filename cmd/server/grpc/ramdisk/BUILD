@@ -5,12 +5,12 @@ go_binary(
     srcs = [
         "ramdisk_server.go",
     ],
-    deps = [
-        "//remote/grpc",
-        "//proto:g2disk_service_go_proto",
-    ],
     pure = "on",
     visibility = [
         "//:__pkg__",
+    ],
+    deps = [
+        "//proto:g2disk_service_go_proto",
+        "//remote/grpc",
     ],
 )

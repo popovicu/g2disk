@@ -26,7 +26,8 @@ expand_version(
 )
 
 exports_files(["nbdkit-common.h", "nbdkit-filter.h", "nbdkit-plugin.h"])
-""")
+""",
+    )
 
     rctx.file(
         "./BUILD",
@@ -43,7 +44,8 @@ exports_files(["nbdkit-common.h", "nbdkit-filter.h", "nbdkit-plugin.h"])
     ],
     visibility = ["//visibility:public"],
 )
-""")
+""",
+    )
 
     rctx.file(
         "./plugins/golang/src/libguestfs.org/nbdkit/BUILD",
@@ -64,7 +66,8 @@ go_library(
     importpath = "libguestfs.org/nbdkit",
     visibility = ["//visibility:public"],
 )
-""")
+""",
+    )
 
 nbdkit_repo = repository_rule(
     implementation = _impl_local,
