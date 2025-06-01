@@ -11,6 +11,7 @@ go_grpc_library(
     proto = ":g2disk_service_proto",
     importpath = "github.com/popovicu/g2disk/proto",
     visibility = [
-        "//pkg/protocol:__subpackages__",
+        "//pkg/nbdkit:__subpackages__",
+        "//cmd/server:__subpackages__",
     ]
 )

@@ -3,14 +3,29 @@ syntax = "proto3";
 package g2disk;
 
 service G2DiskService {
-  rpc Echo(EchoRequest) returns (EchoResponse) {}
+  rpc GetSize(GetSizeRequest) returns (GetSizeResponse) {}
+  rpc Read(ReadRequest) returns (ReadResponse) {}
+  rpc Write(WriteRequest) returns (WriteResponse) {}
 }
 
-message EchoRequest {
-  int32 a = 1;
-  int32 b = 2;
+message GetSizeRequest {}
+
+message GetSizeResponse {
+  uint64 size = 1;
 }
 
-message EchoResponse {
-  int32 c = 1;
+message ReadRequest {
+  uint64 offset = 1;
+  uint64 read_size = 2;
 }
+
+message ReadResponse {
+  bytes payload = 1;
+}
+
+message WriteRequest {
+  uint64 offset = 1;
+  bytes payload = 2;
+}
+
+message WriteResponse {}

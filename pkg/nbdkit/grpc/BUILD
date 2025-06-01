@@ -9,6 +9,10 @@ go_library(
     ],
     deps = [
         PLUGIN_LIB,
+        "//remote/grpc",
+        "//remote/grpc:grpc_credentials",
+        "//remote/grpc:grpc_credentials_insecure",
+        "//proto:g2disk_service_go_proto",
     ],
     cgo = True,
     importpath = "github.com/popovicu/g2disk/pkg/nbdkit/grpc/protocol",
@@ -25,4 +29,7 @@ go_binary(
     ],
     cgo = True,
     linkmode = "c-shared",
+    visibility = [
+        "//:__pkg__",
+    ]
 )

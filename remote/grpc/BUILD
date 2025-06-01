@@ -1,6 +1,7 @@
 package(
     default_visibility = [
-        "//pkg/protocol:__subpackages__",
+        "//pkg/nbdkit:__subpackages__",
+        "//cmd/server:__subpackages__",
     ],
 )
 
