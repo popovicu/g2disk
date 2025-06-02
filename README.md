@@ -11,17 +11,17 @@ The concept is the following:
 4) Build the `g2disk` plugin `.so` file from this repo and start `nbdkit` with it.
 5) Connect your Linux `nbd-client` to the `nbdkit` instance from the previous step, and that instance can proxy over to your target gRPC server.
 
-## Requirements
+# Requirements
 
-### Build requirements
+## Build requirements
 
 TODO
 
-## How to use
+# How to use
 
 This intended build tool for this repository is `bazel`.
 
-### Building the `nbdkit` plugin
+## Building the `nbdkit` plugin
 
 Simply run:
 
@@ -37,7 +37,7 @@ bazel build --linkopt=-fuse-ld=gold //pkg/nbdkit/grpc:g2disk
 
 The build should produce a file `libg2disk.so`.
 
-### Using the `nbdkit` plugin
+## Using the `nbdkit` plugin
 
 `nbdkit` needs to be used in the foreground (`-f`) mode because the Go plugin is used. Something like this should work:
 
@@ -56,7 +56,7 @@ You should now see output like this:
 2025/06/01 16:57:38 INFO Creating a gRPC client
 ```
 
-### Creating an NBD drive
+## Creating an NBD drive
 
 Next, you use `nbd-client` to wire things in the kernel.
 
@@ -75,7 +75,7 @@ Connected /dev/nbd1
 
 You can use other `/dev/ndb*` devices, of course.
 
-### Using the NBD device
+## Using the NBD device
 
 You can then proceed to use your NBD device just like any other block device.
 
@@ -91,7 +91,7 @@ sudo mount /dev/nbd1 /mnt/disk
 
 From that point on, your `/mnt/disk` directory is a regular `ext4` mountpoint.
 
-### Stopping the NBD device
+## Stopping the NBD device
 
 After you're done with the filesystem, unmount the filesystem and stop the device with something like this:
 
