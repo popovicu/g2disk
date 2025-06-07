@@ -1,3 +1,3 @@
 # Index
 
-TODO: index for all docs
+- [Internals](/docs/internals.md)
