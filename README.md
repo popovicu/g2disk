@@ -4,6 +4,7 @@
 
 > :warning: This project is not ready for any sort of production use at this point.
 > Use with caution for any non-experimental setting and please file requests for any features you'd like to see for production use.
+> At the moment, consider this codebase only a proof of concept.
 
 The concept is the following:
 1) Build on top of the [nbdkit](https://libguestfs.org/nbdkit.1.html) plugin framework in Go (via `cgo`)
