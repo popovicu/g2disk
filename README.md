@@ -12,6 +12,10 @@ The concept is the following:
 4) Build the `g2disk` plugin `.so` file from this repo and start `nbdkit` with it.
 5) Connect your Linux `nbd-client` to the `nbdkit` instance from the previous step, and that instance can proxy over to your target gRPC server.
 
+At the moment, there is only a reference implementation for a gRPC-based plugin proxy and the corresponding Go "ramdisk" server. Please feel free to contribute new implementations and file requests for other implementations.
+
+As mentioned above, the current implementation available is just a proof of concept and doesn't even run gRPC over TLS. If there is any interest in using this project where this would actually matter, please file a feature request.
+
 # Docs
 
 This file only contains the instructions for the quickest way to get started. For detailed documentation, head over to [the docs index](/docs/index.md).
