@@ -2,7 +2,8 @@
 
 **g2disk (Go Giant Disk)** is a framework for enabling potentially giant block devices (disks) in userspace for Linux, via [Linux NBD](https://docs.kernel.org/admin-guide/blockdev/nbd.html).
 
-**Note: This is still an unreleased project. It is most definitely not production ready in any way.**
+> :warning: This project is not ready for any sort of production use at this point.
+> Use with caution for any non-experimental setting and please file requests for any features you'd like to see for production use.
 
 The concept is the following:
 1) Build on top of the [nbdkit](https://libguestfs.org/nbdkit.1.html) plugin framework in Go (via `cgo`)
@@ -11,11 +12,9 @@ The concept is the following:
 4) Build the `g2disk` plugin `.so` file from this repo and start `nbdkit` with it.
 5) Connect your Linux `nbd-client` to the `nbdkit` instance from the previous step, and that instance can proxy over to your target gRPC server.
 
-# Requirements
+# Docs
 
-## Build requirements
-
-TODO
+This file only contains the instructions for the quickest way to get started. For detailed documentation, head over to [the docs index](/docs/index.md).
 
 # How to use
 
@@ -29,7 +28,8 @@ Simply run:
 bazel build //pkg/nbdkit/grpc:g2disk
 ```
 
-**Note: Due to a currently unresolved build issue, we have to run the build like this**
+> :warning: If you're facing linker issues, consider using the `linkopt` flag like below, for example.
+> If you customize the linking with `linkopt`, you may want to use your flag for all the builds as your Bazel flag otherwise gets discarded.
 
 ```
 bazel build --linkopt=-fuse-ld=gold //pkg/nbdkit/grpc:g2disk
