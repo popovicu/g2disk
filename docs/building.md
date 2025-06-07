@@ -6,7 +6,7 @@ For a high level overview of Bazel, please check out [this text](https://popovic
 
 ## Requirements
 
-Bazelisk binary (ideally aliased as `bazel`) should be enough to run the Bazel buidl flows. In addition, a working C compiler is needed which can target C standard library (basically any C compiler). Other than that, the Bazel build flow will dynamically fetch the Go toolchain, protobuf compiler, etc.
+Bazelisk binary (ideally aliased as `bazel`) should be enough to run the Bazel build flows. In addition, a working C compiler is needed which can target C standard library (basically any C compiler). Other than that, the Bazel build flow will dynamically fetch the Go toolchain, protobuf compiler, etc.
 
 ## Handling binaries
 

@@ -34,13 +34,28 @@ bazel build //pkg/nbdkit/grpc:g2disk
 ```
 
 > :warning: If you're facing linker issues, consider using the `linkopt` flag like below, for example.
-> If you customize the linking with `linkopt`, you may want to use your flag for all the builds as your Bazel flag otherwise gets discarded.
+> If you customize the linking with `linkopt`, you may want to use your flag for all the builds as your Bazel cache otherwise gets discarded.
 
 ```
 bazel build --linkopt=-fuse-ld=gold //pkg/nbdkit/grpc:g2disk
 ```
 
 The build should produce a file `libg2disk.so`.
+
+## Running the reference ramdisk server
+
+This repo only provides a reference 5 MB ramdisk server, based on gRPC. To start this server, run the following:
+
+```
+bazel run //cmd/server/grpc/ramdisk:ramdisk_server
+```
+
+You'll see something like:
+
+```
+2025/06/07 08:50:49 INFO Listening on a TCP target target=0.0.0.0:8080
+2025/06/07 08:50:49 INFO Starting the API sever target=0.0.0.0:8080
+```
 
 ## Using the `nbdkit` plugin
 
