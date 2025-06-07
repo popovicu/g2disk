@@ -4,6 +4,10 @@ This project uses Bazel and the recommended way to leverage this is via [Bazelis
 
 For a high level overview of Bazel, please check out [this text](https://popovicu.com/posts/build-all-software-in-one-command-with-bazel/).
 
+## Requirements
+
+Bazelisk binary (ideally aliased as `bazel`) should be enough to run the Bazel buidl flows. In addition, a working C compiler is needed which can target C standard library (basically any C compiler). Other than that, the Bazel build flow will dynamically fetch the Go toolchain, protobuf compiler, etc.
+
 ## Handling binaries
 
 Unless you know exactly what you're doing, it's highly recommended that you build the `.so` file on the same environment where you want to run `nbdkit`. At the moment, the `.so` file dynamically links to the C standard library from the build machine, so any inconsistency between the build library and the target can result in problems. Work is in progress to turn this into a fully static build.
