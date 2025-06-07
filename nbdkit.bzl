@@ -19,8 +19,8 @@ package(
 expand_version(
     name = "version_header_expanded",
     major = "1",
-    minor = "16",
-    micro = "2",
+    minor = "38",
+    micro = "0",
     expanded_file = ":nbdkit-version.h",
     template = ":nbdkit-version.h.in",
 )

@@ -157,7 +157,7 @@
   "moduleExtensions": {
     "//:extension.bzl%nbdkit": {
       "general": {
-        "bzlTransitiveDigest": "PqSg/zP25uMQ3hyLyMT9KlODtgmmDt1bSFZpdDMFWS8=",
+        "bzlTransitiveDigest": "bCommYkIfRh+ZrfsvZkrTyAi1t8jxSvZtWEUb1VqJjE=",
         "usagesDigest": "VCrhm3z7XxN0RQfXKh6pVSLFV2GXqkucvcHA+cPOO/M=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
