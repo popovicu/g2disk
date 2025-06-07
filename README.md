@@ -4,7 +4,7 @@
 
 > :warning: This project is not ready for any sort of production use at this point.
 > Use with caution for any non-experimental setting and please file requests for any features you'd like to see for production use.
-> At the moment, consider this codebase only a proof of concept.
+> At the moment, consider this codebase a proof of concept only.
 
 The concept is the following:
 1) Build on top of the [nbdkit](https://libguestfs.org/nbdkit.1.html) plugin framework in Go (via `cgo`)
@@ -23,7 +23,7 @@ This file only contains the instructions for the quickest way to get started. Fo
 
 # How to use
 
-This intended build tool for this repository is `bazel`.
+The intended build tool for this repository is `bazel`.
 
 ## Building the `nbdkit` plugin
 
@@ -67,7 +67,7 @@ sudo nbdkit -f -U /tmp/g2disk.sock bazel-bin/pkg/nbdkit/grpc/g2disk_/libg2disk.s
 
 That runs `nbdkit` server instance that listens on a Unix socket. Alternatively, the server can listen on a TCP socket if set up that way.
 
-The `.so` file parameter is the newly built plugin that will proxies NBD requests over to the endpoint, defined at the end of the line.
+The `.so` file parameter is the newly built plugin that will proxy NBD requests over to the endpoint defined at the end of the line.
 
 You should now see output like this:
 
